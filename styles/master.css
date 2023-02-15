@@ -1,0 +1,210 @@
+@import url("reset.css"); /*import reset*/
+/* import google font */
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+
+@import url("prettyselect.css");
+
+:root {
+  /* the html element*/
+
+  /* set variables */
+  --dark: #093824;
+  --back: #fff;
+  --borders: #dc0428;
+  --other: #76877d;
+
+  /* fallback for browsers that don't suppor variables */
+  color: #093824;
+  background-color: #fff;
+  background-color: var(--dark);
+  color: var(--dark);
+  font-family: "Krona One", sans-serif;
+}
+/**********************************************/
+/*          General Page Sections             */
+/**********************************************/
+
+body {
+  background-image: linear-gradient(transparent, var(--back));
+  min-height: 100vh; /*fill page vertically, but still get bigger*/
+  min-width: 100vw; /*fille page horizontally, but still get bigger*/
+
+  /*flexbox stacks  and spaces header, main and footer vertically*/
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  margin: 1em;
+  background-color: var(--back);
+  display: flex; /*stacks images and heading horizontally*/
+  border-radius: 0.5em; /*rounded corners*/
+  padding: 0.2em;
+  border: 0.3em solid var(--borders);
+  justify-content: space-between; /*force images to edges*/
+}
+
+main {
+  display: flex; /*stacks nav and section horizontally*/
+  align-items: flex-start; /*remove default stretch*/
+  flex: 1; /* grow this element to fill parent*/
+  margin: 1em;
+}
+
+section {
+  background-color: var(--back);
+  border: 0.3em solid var(--borders);
+  border-radius: 0.5em; /*rounded corners*/
+  padding: 1em 2em; /*space inside border*/
+  flex: 1; /*grow to fill remaining space in main*/
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+/**********************************************/
+/*                 Heading Styles                */
+/**********************************************/
+header h1 {
+  align-self: center;
+  font-size: 4rem;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  padding: 1em 0;
+  border-bottom: 0.2em solid var(--borders);
+}
+
+/**********************************************/
+/*                 Form Styles                */
+/**********************************************/
+
+form {
+  display: flex; /*space element divs vertically*/
+  flex-direction: column;
+}
+form fieldset {
+  padding-left: 1em;
+  align-self: flex-start; /*remove default stretch*/
+  border-top: 0.3em solid var(--other);
+  border-bottom: 0.3em solid var(--other);
+}
+
+form > div,
+form fieldset {
+  /* will stack contents of form divs and fieldset horizontally, but direct divs are over-ridden later*/
+  display: flex;
+  margin: 1em 0;
+}
+
+form > div {
+  flex-direction: column; /*space contents of divs directly in form vertically*/
+}
+
+fieldset div {
+  /*spacing for elements in fieldset*/
+  margin: 1em 5em 1em 1em;
+}
+
+form label,
+legend {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.3em;
+  margin-bottom: 0.5em;
+}
+legend {
+  padding: 0 0.5em;
+}
+
+form input,
+select {
+  background: rgba(9, 56, 36, 0.1); /*mostly transparent green background */
+  outline: none; /*remove default border*/
+  border-radius: 0.2em; /*rounded corners*/
+  border: none; /*remove default border*/
+  font-size: 0.9em;
+  padding: 1em; /*spacing inside element (around text)*/
+  color: var(--dark);
+}
+
+/*accessability styles to highlight focused input (keyboard navigation)*/
+form input:focus {
+  outline: 0.2em solid var(--borders);
+}
+
+/**********************************************/
+/*        Nav and Button Styles              */
+/**********************************************/
+
+nav ul {
+  display: flex; /*stacks list items vertically*/
+  flex-direction: column;
+  padding-right: 1em;
+}
+
+nav li {
+  margin-bottom: 1em;
+}
+
+nav a,
+nav a:visited,
+nav a:active,
+button {
+  display: block; /*necessary to allow padding links, so the whole space is clickable*/
+  padding: 1em; /*space inside border*/
+  border-radius: 0.5em; /*rounded corners*/
+  background-color: var(--borders);
+  border: 0.3em solid var(--back);
+  color: var(--back);
+  text-align: center;
+  /* make it more button like with shadow */
+  box-shadow: 0px 8px 15px rgba(9, 56, 36, 0.5);
+  text-decoration: none; /*remove underline*/
+}
+
+/*swap colours on hover*/
+nav a:hover,
+button:hover {
+  background-color: var(--back);
+  border: 0.3em solid var(--borders);
+  color: var(--borders);
+  border-radius: 0.5em; /*rounded corners*/
+}
+
+button {
+  font-size: 1.2em;
+  /* make it more button like with shadow */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/*------------------------------------------------------------------------------
+|                               Error Styles for Lab 5
+|-----------------------------------------------------------------------------*/
+
+.error {
+  color: var(--borders);
+  display: block;
+  margin: 0.5em;
+}
+
+.hidden {
+  display: none;
+}
+
+/*------------------------------------------------------------------------------
+|                               Naughty Nice List Styles Lab 7
+|-----------------------------------------------------------------------------*/
+
+ol {
+  padding: 1em;
+  list-style: decimal;
+  /* list-style-type: decimal; */
+}
+section {
+  margin-right: 1em;
+}
